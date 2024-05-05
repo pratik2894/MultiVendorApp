@@ -12,22 +12,29 @@ router.post(
   isSeller,
   catchAsyncErrors(async (req, res, next) => {
     try {
+      const shopId = req.seller.id;
       const isCoupounCodeExists = await CoupounCode.find({
         name: req.body.name,
+        value: req.body.value,
+        
       });
 
       if (isCoupounCodeExists.length !== 0) {
         return next(new ErrorHandler('Coupoun code already exists!', 400));
       }
 
-      const coupounCode = await CoupounCode.create(req.body);
-
+      const couponCode = await CoupounCode.create({
+        ...req.body,
+        shopId: shopId  // Include the shopId in the document to be created
+      });
+      
       res.status(201).json({
         success: true,
-        coupounCode,
+        couponCode,
+        
       });
     } catch (error) {
-      return next(new ErrorHandler(error, 400));
+      return res.status(500).json( { success:false, error:error.stack});
     }
   }),
 );
