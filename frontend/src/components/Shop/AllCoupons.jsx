@@ -63,6 +63,7 @@ const AllCoupons = () => {
           shopId: seller._id,
         },
         { withCredentials: true },
+        console.log(seller._id)
       )
       .then((res) => {
         toast.success('Coupon code created successfully!');
@@ -70,7 +71,7 @@ const AllCoupons = () => {
         window.location.reload();
       })
       .catch((error) => {
-        toast.error(error.response.data.message);
+        toast.error(error.stack);
       });
   };
 
