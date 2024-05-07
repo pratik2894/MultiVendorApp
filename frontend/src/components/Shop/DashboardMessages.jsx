@@ -310,14 +310,14 @@ const MessageList = ({
         )}
       </div>
       <div className="pl-3">
-        <h1 className="text-[18px]">{user?.name}</h1>
-        <p className="text-[16px] text-[#000c]">
-          {data?.lastMessageId !== user?._id
-            ? 'You:'
-            : user?.name.split(' ')[0] + ': '}{' '}
-          {data?.lastMessage}
-        </p>
-      </div>
+  <h1 className="text-[18px]">{user?.name}</h1>
+  <p className="text-[16px] text-[#000c]">
+    {data?.lastMessageId !== user?._id
+      ? 'You:'
+      : (user && user.name) ? (user.name.split(' ')[0] + ': ') : ''}{' '}
+    {data?.lastMessage}
+  </p>
+</div>
     </div>
   );
 };

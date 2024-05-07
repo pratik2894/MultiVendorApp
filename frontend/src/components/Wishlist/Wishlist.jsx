@@ -99,7 +99,7 @@ const CartSingle = ({ data, removeFromWishlistHandler, addToCartHandler }) => {
         <h1 className='my-2'>{data.name}</h1>
         <div className="flex justify-between">
           <h4 className="font-[600] pt-3 800px:pt-[3px] text-[17px] text-[#d02222] font-Roboto">
-            ₱{totalPrice}
+            ${totalPrice}
           </h4>
           <BsCartPlus
             size={20}

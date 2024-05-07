@@ -80,7 +80,7 @@ const Cart = ({ setOpenCart }) => {
                   className={`h-[45px] flex items-center justify-center w-[100%] bg-[#e44343] rounded-[5px]`}
                 >
                   <h1 className="text-[#fff] font-Poppins text-[18px] font-[600]">
-                    Checkout Now (₱{totalPrice.toFixed(2)})
+                    Checkout Now (${totalPrice.toFixed(2)})
                   </h1>
                 </div>
               </Link>
@@ -132,11 +132,11 @@ const CartSingle = ({ data, quantityChangeHandler, removeFromCartHandler }) => {
         <div className="pl-[5px]">
           <h1>{data.name}</h1>
           <h4 className="font-[400] text-[15px] text-[#00000082]">
-            ₱{(data.discountPrice).toFixed(2)} * {value}
+            ${(data.discountPrice).toFixed(2)} * {value}
           </h4>
           <div className='flex justify-between mb-3'>
             <h4 className="font-[600] text-[17px] pt-[3px] text-[#d02222] font-Roboto">
-              ₱{totalPrice.toFixed(2)}
+              ${totalPrice.toFixed(2)}
             </h4>
             <div className='flex gap-3'>
               <div
